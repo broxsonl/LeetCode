@@ -8,24 +8,19 @@
 
 # Note: The sequence of integers will be represented as a string.
 
-class CountSay
-  attr_reader :seed
-
-  def initialize
-    @seed = 1
-  end
-
+CountSay = Struct.new(:number) do
   def cycle(n)
-    n.times { @seed = laundromat(@seed) }
-    @seed
+    self.number = '1'
+    n.times { self.number = laundromat(self.number) }
+    self.number
   end
 
   private
 
-  def laundromat(x)
-    x.to_s.chars.map(&:to_i)
-                .chunk{|n| n}
-                .map{|number, sequence| [sequence.count, number]}
-                .join.to_i
+  def laundromat(a_number)
+    a_number.to_s.chars
+            .chunk{|n| n}
+            .map{|n, sequence| [sequence.count, n]}
+            .join
   end
 end
