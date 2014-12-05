@@ -8,19 +8,19 @@
 
 # Note: The sequence of integers will be represented as a string.
 
-CountSay = Struct.new(:number) do
-  def cycle(n)
-    self.number = '1'
-    n.times { self.number = laundromat(self.number) }
-    self.number
+module CountSay
+  def cycle(turns)
+    string_of_digits = '1'
+    turns.times { string_of_digits = laundromat(string_of_digits) }
+    string_of_digits
   end
 
   private
 
-  def laundromat(a_number)
-    a_number.to_s.chars
-            .chunk{|n| n}
-            .map{|n, sequence| [sequence.count, n]}
-            .join
+  def laundromat(string)
+    string.chars
+          .chunk{|n| n}
+          .map{|n, sequence| [sequence.count, n]}
+          .join
   end
 end

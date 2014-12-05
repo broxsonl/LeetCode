@@ -1,25 +1,21 @@
 require 'spec_helper'
 
 describe 'CountSay' do
-  let(:cs) { CountSay.new }
+  include CountSay
 
-  it { CountSay.new.number.must_be_nil }
+  it { cycle(0).must_equal '1' }
 
-  it { CountSay.new.cycle(0).must_equal '1' }
+  it { cycle(1).must_equal '11' }
 
-  describe '#to_s' do
-    it { cs.cycle(1).must_equal '11' }
+  it { cycle(2).must_equal '21' }
 
-    it { cs.cycle(2).must_equal '21' }
+  it { cycle(3).must_equal '1211' }
 
-    it { cs.cycle(3).must_equal '1211' }
-
-    it { cs.cycle(4).must_equal '111221' }
-  end
+  it { cycle(4).must_equal '111221' }
 
   describe '#laundromat' do
-    it { cs.send(:laundromat, 1).must_equal '11' }
+    it { send(:laundromat, '1').must_equal '11' }
 
-    it { cs.send(:laundromat, 123).must_equal '111213' }
+    it { send(:laundromat, '123').must_equal '111213' }
   end
 end
