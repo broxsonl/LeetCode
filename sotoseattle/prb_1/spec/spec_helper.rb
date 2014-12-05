@@ -1,3 +1,4 @@
+require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require './prb_1.rb'
+require_relative '../prb_1.rb'
