@@ -12,10 +12,4 @@ describe 'CountSay' do
   it { cycle(3).must_equal '1211' }
 
   it { cycle(4).must_equal '111221' }
-
-  describe '#laundromat' do
-    it { send(:laundromat, '1').must_equal '11' }
-
-    it { send(:laundromat, '123').must_equal '111213' }
-  end
 end

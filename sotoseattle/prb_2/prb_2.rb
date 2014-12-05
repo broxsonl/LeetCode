@@ -10,17 +10,10 @@
 
 module CountSay
   def cycle(turns)
-    string_of_digits = '1'
-    turns.times { string_of_digits = laundromat(string_of_digits) }
-    string_of_digits
-  end
-
-  private
-
-  def laundromat(string)
-    string.chars
-          .chunk{|n| n}
-          .map{|n, sequence| [sequence.count, n]}
-          .join
+    digit_str = [1]
+    turns.times do
+      digit_str = digit_str.chunk{ |n| n }.map{ |n, succ| [succ.count, n] }.flatten
+    end
+    digit_str.join
   end
 end
