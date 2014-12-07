@@ -3,14 +3,13 @@
 # The maximum depth is the number of nodes along
 # the longest path from the root node down to the farthest leaf node.
 
-require_relative '../data_structures/binary_tree'
 require 'binary_tree_depth'
 
 RSpec.describe 'binary tree depth' do
   describe 'solution' do
     context 'with a balanced tree of depth 1' do
       before(:each) do
-        @tree = BinaryTree.new(7)
+        @tree = LeetCode::BinaryTree.new(7)
       end
 
       it 'should return a depth of 1' do
@@ -20,7 +19,11 @@ RSpec.describe 'binary tree depth' do
 
     context 'with a balanced tree of depth 2' do
       before(:each) do
-        @tree = BinaryTree.new(7, BinaryTree.new(8), BinaryTree.new(32))
+        @tree = LeetCode::BinaryTree.new(
+          7,
+          LeetCode::BinaryTree.new(8),
+          LeetCode::BinaryTree.new(32)
+        )
       end
 
       it 'should return a depth of 2' do

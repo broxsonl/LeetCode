@@ -1,17 +1,28 @@
-class Queue
-  def initialize(*args)
-    @queue = DoubleList.new(*args)
-  end
+module LeetCode
+  class Queue
+    def initialize(*args)
+      @queue = LeetCode::DoubleList.new
+      args.each { |arg| enqueue arg }
+    end
 
-  def enqueue(val)
-    @queue.unshift(val)
-  end
+    def enqueue(val)
+      @queue.unshift(val)
+    end
 
-  def dequeue
-    @queue.pop
-  end
+    def dequeue
+      @queue.pop
+    end
 
-  def peek
-    @queue.tail
+    def peek
+      @queue.tail
+    end
+
+    def size
+      @queue.size
+    end
+
+    def empty?
+      @queue.size == 0
+    end
   end
 end
