@@ -1,6 +1,8 @@
 require_relative '../data_structures/queue'
 
 module LeetCode
+  # Adds #max_depth to the BinaryTree class. This algorithm does a breadth-first
+  # search while tracking the levels throughout
   class BinaryTree
     def max_depth
       queue = LeetCode::Queue.new(self)

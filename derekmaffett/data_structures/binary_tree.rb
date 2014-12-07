@@ -1,4 +1,5 @@
 module LeetCode
+  # A basic binary tree for use in algorithms
   class BinaryTree
     def initialize(val, left = nil, right = nil)
       @value = val

@@ -1,4 +1,5 @@
 module LeetCode
+  # Basic queue. It is essentially a wrapper for a doubly-linked list.
   class Queue
     def initialize(*args)
       @queue = LeetCode::DoubleList.new

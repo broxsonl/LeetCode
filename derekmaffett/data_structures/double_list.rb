@@ -1,5 +1,7 @@
 module LeetCode
+  # A basic doubly-linked list to use for algorithms
   class DoubleList
+    # The nodes used for a doubly-linked list
     class Node
       def initialize(val)
         @val = val
