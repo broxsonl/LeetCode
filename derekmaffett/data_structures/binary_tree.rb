@@ -15,5 +15,9 @@ module LeetCode
       children[:right] = @right if @right
       children
     end
+
+    def levels
+
+    end
   end
 end
