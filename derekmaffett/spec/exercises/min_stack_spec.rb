@@ -102,6 +102,33 @@ RSpec.describe LeetCode::Stack do
   end
 
   describe '#get_min' do
+    context 'with an empty stack' do
+      before(:each) do
+        @stack = LeetCode::Stack.new
+      end
 
+      it 'should return nil' do
+        expect(@stack.get_min).to be_nil
+      end
+    end
+
+    context 'with items in the stack' do
+      before(:each) do
+        @stack = LeetCode::Stack.new(10, 2, 33, 82, 4)
+        @response = @stack.get_min
+      end
+
+      it 'should return the min value' do
+        expect(@response).to eq 2
+      end
+
+      it 'should leave the stack intact' do
+        expect(@stack.size).to eq 5
+      end
+
+      it 'should still have the items in the same order' do
+        expect(@stack.top).to eq 4
+      end
+    end
   end
 end
