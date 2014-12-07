@@ -1,4 +1,5 @@
 module LeetCode
+  # Basic stack for general use
   class Stack
     def initialize(*args)
       @stack = LeetCode::DoubleList.new

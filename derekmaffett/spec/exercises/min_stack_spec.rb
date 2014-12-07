@@ -101,21 +101,21 @@ RSpec.describe LeetCode::Stack do
     end
   end
 
-  describe '#get_min' do
+  describe '#find_min' do
     context 'with an empty stack' do
       before(:each) do
         @stack = LeetCode::Stack.new
       end
 
       it 'should return nil' do
-        expect(@stack.get_min).to be_nil
+        expect(@stack.find_min).to be_nil
       end
     end
 
     context 'with items in the stack' do
       before(:each) do
         @stack = LeetCode::Stack.new(10, 2, 33, 82, 4)
-        @response = @stack.get_min
+        @response = @stack.find_min
       end
 
       it 'should return the min value' do
