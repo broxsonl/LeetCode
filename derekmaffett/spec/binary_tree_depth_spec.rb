@@ -1,0 +1,31 @@
+# Given a binary tree, find its maximum depth.
+
+# The maximum depth is the number of nodes along
+# the longest path from the root node down to the farthest leaf node.
+
+require_relative '../data_structures/binary_tree'
+require 'binary_tree_depth'
+
+RSpec.describe 'binary tree depth' do
+  describe 'solution' do
+    context 'with a balanced tree of depth 1' do
+      before(:each) do
+        @tree = BinaryTree.new(7)
+      end
+
+      it 'should return a depth of 1' do
+        expect(@tree.max_depth).to eq 1
+      end
+    end
+
+    context 'with a balanced tree of depth 2' do
+      before(:each) do
+        @tree = BinaryTree.new(7, BinaryTree.new(8), BinaryTree.new(32))
+      end
+
+      it 'should return a depth of 2' do
+        expect(@tree.max_depth).to eq 2
+      end
+    end
+  end
+end
