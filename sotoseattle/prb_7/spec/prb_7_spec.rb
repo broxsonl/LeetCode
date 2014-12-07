@@ -5,9 +5,9 @@ describe '#palindrome?' do
   it { palindrome?(11).must_equal true }
   it { palindrome?(111).must_equal true }
   it { palindrome?(121).must_equal true }
-  it { palindrome?(108801).must_equal true }
-  it { palindrome?(108901).must_equal false }
-  it { palindrome?(1087801).must_equal true }
-  it { palindrome?(1087802).must_equal false }
-  it { palindrome?(1077801).must_equal false }
+  it { palindrome?(108_801).must_equal true }
+  it { palindrome?(108_901).must_equal false }
+  it { palindrome?(1_087_801).must_equal true }
+  it { palindrome?(1_087_802).must_equal false }
+  it { palindrome?(1_077_801).must_equal false }
 end

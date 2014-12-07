@@ -3,7 +3,7 @@ ENV['BENCH'] ||= 'test'
 require 'rake/testtask'
 
 Rake::TestTask.new do |t|
- t.libs << 'spec'
- t.test_files = FileList['spec/**/*spec.rb']
+  t.libs << 'spec'
+  t.test_files = FileList['spec/**/*spec.rb']
 end
 task default: 'test'

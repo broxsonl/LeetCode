@@ -1,12 +1,15 @@
 # # Determine whether an integer is a palindrome. Do this without extra space.
 
-def palindrome?(number)
-  tmp = number
+def reverse(number)
   reversed = 0
-  while tmp > 0
-    last_digit = tmp % 10
-    reversed = (reversed + last_digit) * 10
-    tmp = (tmp - last_digit)/10
+  while number > 0
+    last_digit = number % 10
+    reversed   = reversed * 10 + last_digit
+    number     = (number - last_digit) / 10
   end
-  reversed/10 == number
+  reversed
+end
+
+def palindrome?(number)
+  reverse(number) == number
 end
