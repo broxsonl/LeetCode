@@ -4,6 +4,8 @@ module LeetCode
   # Adds #max_depth to the BinaryTree class. This algorithm does a breadth-first
   # search while tracking the levels throughout
   class BinaryTree
+    # Levels are an additional layer of abstraction for gathering the relevant
+    # trees during a breadth-first search.
     class Level
       def initialize
         @contents = []
@@ -23,13 +25,11 @@ module LeetCode
       levels = []
 
       until queue.empty?
-        level = Level.new
-        level_size = queue.size
-        level_size.times do |i|
+        levels << level = Level.new
+        queue.size.times do
           level.push element = queue.dequeue
           element.children.each_value { |child| queue.enqueue child }
         end
-        levels << level
       end
 
       levels

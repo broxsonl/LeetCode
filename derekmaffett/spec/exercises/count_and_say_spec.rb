@@ -21,7 +21,13 @@ RSpec.describe LeetCode::CountSay do
     end
 
     context 'for the fifth number in the sequence' do
+      before(:each) do
+        @result = LeetCode::CountSay.count_and_say(5)
+      end
 
+      it 'should return 111221' do
+        expect(@result).to eq '111221'
+      end
     end
   end
 end

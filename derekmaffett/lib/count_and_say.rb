@@ -1,6 +1,8 @@
 module LeetCode
+  # Implementation of count and say exercise - each number in the sequence
+  # is built off of how you would verbally say the previous number.
   module CountSay
-    def CountSay.count_and_say(num)
+    def self.count_and_say(num)
       return '1' if num == 1
 
       current_sequence = '1'
@@ -8,7 +10,7 @@ module LeetCode
       current_sequence
     end
 
-    def CountSay.next_sequence(number)
+    def self.next_sequence(number)
       next_sequence = ''
       while number.size > 0
         category = number[0]
@@ -18,7 +20,7 @@ module LeetCode
       next_sequence
     end
 
-    def CountSay.say(count, number)
+    def self.say(count, number)
       "#{count}#{number}"
     end
   end

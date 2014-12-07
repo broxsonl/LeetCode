@@ -31,10 +31,14 @@ RSpec.describe 'binary tree depth' do
 
     context 'with an unbalanced tree of depth 5' do
       before(:each) do
-        @tree = LeetCode::BinaryTree.new(1,
-          LeetCode::BinaryTree.new(2,
-            LeetCode::BinaryTree.new(3,
-              LeetCode::BinaryTree.new(4,
+        @tree = LeetCode::BinaryTree.new(
+          1,
+          LeetCode::BinaryTree.new(
+            2,
+            LeetCode::BinaryTree.new(
+              3,
+              LeetCode::BinaryTree.new(
+                4,
                 LeetCode::BinaryTree.new(5)
               )
             )
