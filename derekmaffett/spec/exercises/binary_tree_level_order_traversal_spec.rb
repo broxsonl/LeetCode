@@ -1,12 +1,12 @@
 RSpec.describe LeetCode::BinaryTree do
-  describe '#reverse_order_level_traversal' do
+  describe '#in_order_level_traversal' do
     context 'with a depth of 1' do
       before(:each) do
         @tree = LeetCode::BinaryTree.new(7)
       end
 
-      it 'should return a reverse traversal' do
-        expect(@tree.reverse_order_level_traversal).to eq [[7]]
+      it 'should return the correct traversal' do
+        expect(@tree.in_order_level_traversal).to eq [[7]]
       end
     end
 
@@ -20,7 +20,7 @@ RSpec.describe LeetCode::BinaryTree do
       end
 
       it 'should return the correct traversal' do
-        expect(@tree.reverse_order_level_traversal).to eq [[8, 32], [7]]
+        expect(@tree.in_order_level_traversal).to eq [[7], [8, 32]]
       end
     end
 
@@ -38,11 +38,7 @@ RSpec.describe LeetCode::BinaryTree do
       end
 
       it 'should return the correct traversal' do
-        expect(@tree.reverse_order_level_traversal).to eq(
-          [
-            [5], [4], [3], [2], [1]
-          ]
-        )
+        expect(@tree.in_order_level_traversal).to eq [[1], [2], [3], [4], [5]]
       end
     end
 
@@ -60,11 +56,11 @@ RSpec.describe LeetCode::BinaryTree do
       end
 
       it 'should return the correct traversal' do
-        expect(@tree.reverse_order_level_traversal).to eq(
+        expect(@tree.in_order_level_traversal).to eq(
           [
-            [15, 7],
+            [3],
             [9, 20],
-            [3]
+            [15, 7]
           ]
         )
       end
