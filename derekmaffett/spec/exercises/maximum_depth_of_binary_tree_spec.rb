@@ -3,8 +3,6 @@
 # The maximum depth is the number of nodes along
 # the longest path from the root node down to the farthest leaf node.
 
-require 'binary_tree_depth'
-
 RSpec.describe 'binary tree depth' do
   describe 'solution' do
     context 'with a balanced tree of depth 1' do

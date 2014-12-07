@@ -9,6 +9,10 @@ module LeetCode
         @contents = []
       end
 
+      def to_a
+        @contents.map(&:value)
+      end
+
       def push(tree)
         @contents << tree
       end
