@@ -30,5 +30,23 @@ RSpec.describe 'binary tree depth' do
         expect(@tree.max_depth).to eq 2
       end
     end
+
+    context 'with an unbalanced tree of depth 5' do
+      before(:each) do
+        @tree = LeetCode::BinaryTree.new(1,
+          LeetCode::BinaryTree.new(2,
+            LeetCode::BinaryTree.new(3,
+              LeetCode::BinaryTree.new(4,
+                LeetCode::BinaryTree.new(5)
+              )
+            )
+          )
+        )
+      end
+
+      it 'should return a depth of 5' do
+        expect(@tree.max_depth).to eq 5
+      end
+    end
   end
 end
