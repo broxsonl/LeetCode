@@ -42,6 +42,14 @@ class DoubleList
     remove @tail
   end
 
+  def tail
+    @tail.val
+  end
+
+  def head
+    @head.val
+  end
+
   private
 
   def remove(node)
