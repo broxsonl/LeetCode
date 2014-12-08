@@ -35,13 +35,13 @@ module LeetCode
 
       def next
         row = @next_row
-        get_next_row
+        calculate_next_row
         row
       end
 
       private
 
-      def get_next_row
+      def calculate_next_row
         @increasing ? @next_row += 1 : @next_row -= 1
         @increasing = !@increasing if @next_row == 1 || @next_row == @rows
       end
