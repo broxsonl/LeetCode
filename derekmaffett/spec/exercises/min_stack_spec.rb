@@ -1,9 +1,9 @@
-RSpec.describe LeetCode::Stack do
+RSpec.describe LeetCode::MinStack do
   describe '#push' do
     context 'pushing to an empty stack' do
       before(:each) do
-        @stack = LeetCode::Stack.new
-        @stack.push('Hi')
+        @stack = LeetCode::MinStack.new
+        @stack.push 10
       end
 
       it 'should increase the stack size' do
@@ -11,14 +11,14 @@ RSpec.describe LeetCode::Stack do
       end
 
       it 'should be the top element' do
-        expect(@stack.top).to eq 'Hi'
+        expect(@stack.top).to eq 10
       end
     end
 
     context 'pushing to a stack with items' do
       before(:each) do
-        @stack = LeetCode::Stack.new(1, 2, 3)
-        @stack.push('New thing')
+        @stack = LeetCode::MinStack.new(1, 2, 3)
+        @stack.push(4)
       end
 
       it 'should have the appropriate size' do
@@ -26,7 +26,21 @@ RSpec.describe LeetCode::Stack do
       end
 
       it 'should have the top element as the last pushed item' do
-        expect(@stack.top).to eq 'New thing'
+        expect(@stack.top).to eq 4
+      end
+    end
+
+    context 'pushing different types of data' do
+      before(:each) do
+        @stack = LeetCode::MinStack.new
+      end
+
+      it 'should reject a string' do
+        expect { @stack.push('Hi') }.to raise_error ArgumentError
+      end
+
+      it 'should accept floats' do
+        expect { @stack.push(12.74) }.not_to raise_error
       end
     end
   end
@@ -34,7 +48,7 @@ RSpec.describe LeetCode::Stack do
   describe '#pop' do
     context 'when the stack is empty' do
       before(:each) do
-        @stack = LeetCode::Stack.new
+        @stack = LeetCode::MinStack.new
         @response = @stack.pop
       end
 
@@ -49,7 +63,7 @@ RSpec.describe LeetCode::Stack do
 
     context 'when the stack has a single element' do
       before(:each) do
-        @stack = LeetCode::Stack.new(1)
+        @stack = LeetCode::MinStack.new(1)
         @response = @stack.pop
       end
 
@@ -64,7 +78,7 @@ RSpec.describe LeetCode::Stack do
 
     context 'when the stack has elements' do
       before(:each) do
-        @stack = LeetCode::Stack.new(1, 2, 3, 4)
+        @stack = LeetCode::MinStack.new(1, 2, 3, 4)
         @top = @stack.top
         @response = @stack.pop
       end
@@ -82,7 +96,7 @@ RSpec.describe LeetCode::Stack do
   describe '#top' do
     context 'when the stack is empty' do
       before(:each) do
-        @stack = LeetCode::Stack.new
+        @stack = LeetCode::MinStack.new
       end
 
       it 'should return nil' do
@@ -92,7 +106,7 @@ RSpec.describe LeetCode::Stack do
 
     context 'when the stack has elements' do
       before(:each) do
-        @stack = LeetCode::Stack.new(1, 2, 3)
+        @stack = LeetCode::MinStack.new(1, 2, 3)
       end
 
       it 'should return the top element' do
@@ -104,7 +118,7 @@ RSpec.describe LeetCode::Stack do
   describe '#find_min' do
     context 'with an empty stack' do
       before(:each) do
-        @stack = LeetCode::Stack.new
+        @stack = LeetCode::MinStack.new
       end
 
       it 'should return nil' do
@@ -114,20 +128,22 @@ RSpec.describe LeetCode::Stack do
 
     context 'with items in the stack' do
       before(:each) do
-        @stack = LeetCode::Stack.new(10, 2, 33, 82, 4)
-        @response = @stack.find_min
+        @stack = LeetCode::MinStack.new(10, 7, 7, 82, 4)
       end
 
       it 'should return the min value' do
-        expect(@response).to eq 2
+        expect(@stack.find_min).to eq 4
       end
 
-      it 'should leave the stack intact' do
-        expect(@stack.size).to eq 5
-      end
-
-      it 'should still have the items in the same order' do
-        expect(@stack.top).to eq 4
+      it 'should return to earlier mins when the stack is popped' do
+        @stack.pop
+        expect(@stack.find_min).to eq 7
+        @stack.pop
+        expect(@stack.find_min).to eq 7
+        @stack.pop
+        expect(@stack.find_min).to eq 7
+        @stack.pop
+        expect(@stack.find_min).to eq 10
       end
     end
   end
