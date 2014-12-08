@@ -16,6 +16,8 @@ module LeetCode
       sort_to_rows(rows).join
     end
 
+    private
+
     def sort_to_rows(rows)
       sequence = Sequence.new(rows)
       zig_zag_rows = Array.new(rows, '')
