@@ -1,4 +1,5 @@
 module LeetCode
+  # Computes whether an integer is a palindrome with only constant extra space
   class Palindrome
     def initialize(number)
       fail ArgumentError unless number.is_a? Integer
@@ -6,11 +7,11 @@ module LeetCode
     end
 
     def palindrome?
-      total_digits = num_digits
+      digits = num_digits
       offset = 0
 
-      until offset == total_digits / 2
-        return false unless digit_at(total_digits - offset) == digit_at(1 + offset)
+      until offset == digits / 2
+        return false unless digit_at(digits - offset) == digit_at(1 + offset)
         offset += 1
       end
 
@@ -18,7 +19,7 @@ module LeetCode
     end
 
     def digit_at(position)
-      (@number.abs / (10 ** (position - 1))) % 10
+      @number.abs / 10**(position - 1) % 10
     end
 
     private

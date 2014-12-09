@@ -17,10 +17,10 @@ RSpec.describe LeetCode::Palindrome do
 
     context 'odd number of multiple digits' do
       before(:each) do
-        @positive_true = LeetCode::Palindrome.new(53435)
-        @negative_true = LeetCode::Palindrome.new(-53435)
-        @positive_false = LeetCode::Palindrome.new(88923)
-        @negative_false = LeetCode::Palindrome.new(-88923)
+        @positive_true = LeetCode::Palindrome.new(53_435)
+        @negative_true = LeetCode::Palindrome.new(-53_435)
+        @positive_false = LeetCode::Palindrome.new(88_923)
+        @negative_false = LeetCode::Palindrome.new(-88_923)
       end
 
       it 'should return true for multi-digit palindromes' do
@@ -64,6 +64,5 @@ RSpec.describe LeetCode::Palindrome do
         expect(@negative_false.palindrome?).to eq false
       end
     end
-
   end
 end

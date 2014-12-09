@@ -5,7 +5,7 @@ RSpec.describe LeetCode::StringConverter do
     end
 
     it 'should convert a multiple digit positive integer' do
-      expect(LeetCode::StringConverter.new('398234').to_i).to eq 398234
+      expect(LeetCode::StringConverter.new('398234').to_i).to eq 398_234
     end
 
     it 'should convert a multiple digit integer with zeros at the end' do
@@ -21,11 +21,11 @@ RSpec.describe LeetCode::StringConverter do
     end
 
     it 'should convert a single digit negative integer' do
-      expect(LeetCode::StringConverter.new('-3').to_i).to eq -3
+      expect(LeetCode::StringConverter.new('-3').to_i).to eq(-3)
     end
 
     it 'should convert a multiple digit positive integer' do
-      expect(LeetCode::StringConverter.new('-742').to_i).to eq -742
+      expect(LeetCode::StringConverter.new('-742').to_i).to eq(-742)
     end
 
     it 'should convert an integer with non-numerical characters' do
@@ -38,7 +38,7 @@ RSpec.describe LeetCode::StringConverter do
 
     it 'should convert a number with multiple negative marks' do
       expect(LeetCode::StringConverter.new('--7').to_i).to eq 7
-      expect(LeetCode::StringConverter.new('---7').to_i).to eq -7
+      expect(LeetCode::StringConverter.new('---7').to_i).to eq(-7)
     end
 
     it 'should convert a float to an int by ignoring post-decimal numbers' do

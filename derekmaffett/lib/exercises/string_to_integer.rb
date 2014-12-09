@@ -1,4 +1,5 @@
 module LeetCode
+  # Implements a #to_i method for strings
   class StringConverter
     def initialize(string)
       @string = string
@@ -6,7 +7,7 @@ module LeetCode
 
     def to_i
       string = strip_non_digits_and_decimals(@string)
-      result = string.chars.reduce(0) { |num, c| num * 10 + int_by_ascii(c) }
+      result = string.chars.reduce(0) { |a, e| a * 10 + int_by_ascii(e) }
       negative?(@string) ? -result : result
     end
 
