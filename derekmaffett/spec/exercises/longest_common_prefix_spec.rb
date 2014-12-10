@@ -9,5 +9,15 @@ RSpec.describe LeetCode::StringComparator do
         expect(@comparator.common_prefix).to eq 'string'
       end
     end
+
+    context 'a set with no common prefix' do
+      before(:each) do
+        @comparator = LeetCode::StringComparator.new('string', 'not')
+      end
+
+      it 'should return nil' do
+        expect(@comparator.common_prefix).to be_nil
+      end
+    end
   end
 end
