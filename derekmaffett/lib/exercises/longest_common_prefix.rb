@@ -1,4 +1,5 @@
 module LeetCode
+  # Compares an array of strings, here finding the longest common prefix
   class StringComparator
     def initialize(*strings)
       @strings = strings
