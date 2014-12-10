@@ -15,8 +15,23 @@ RSpec.describe LeetCode::StringComparator do
         @comparator = LeetCode::StringComparator.new('string', 'not')
       end
 
-      it 'should return nil' do
-        expect(@comparator.common_prefix).to be_nil
+      it 'should return an empty string' do
+        expect(@comparator.common_prefix).to eq ''
+      end
+    end
+
+    context 'a set with a common prefix' do
+      before(:each) do
+        @comparator = LeetCode::StringComparator.new(
+          'consumption',
+          'contradictory',
+          'conplicated',
+          'constant'
+        )
+      end
+
+      it 'should return an empty string' do
+        expect(@comparator.common_prefix).to eq 'con'
       end
     end
   end

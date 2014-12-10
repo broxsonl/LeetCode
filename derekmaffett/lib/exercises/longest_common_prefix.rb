@@ -5,11 +5,13 @@ module LeetCode
     end
 
     def common_prefix
-      loop do |i|
-        char = @strings.first[i]
-        break unless @strings.all? { |string| string[i] == char }
+      prefix = ''
+
+      @strings.first.chars.each_with_index do |char, i|
+        return prefix unless @strings.all? { |string| string[i] == char }
         prefix << char
       end
+
       prefix
     end
   end
