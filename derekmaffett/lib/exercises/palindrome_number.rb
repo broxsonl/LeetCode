@@ -1,6 +1,6 @@
 module LeetCode
   # Computes whether an integer is a palindrome with only constant extra space
-  class Palindrome
+  class IntegerPalindrome
     def initialize(number)
       fail ArgumentError unless number.is_a? Integer
       @number = number

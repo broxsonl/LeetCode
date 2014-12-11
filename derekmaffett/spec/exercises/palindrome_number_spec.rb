@@ -1,9 +1,9 @@
-RSpec.describe LeetCode::Palindrome do
+RSpec.describe LeetCode::IntegerPalindrome do
   describe '#palindrome?' do
     context 'single digits' do
       before(:each) do
-        @positive = LeetCode::Palindrome.new(1)
-        @negative = LeetCode::Palindrome.new(-1)
+        @positive = LeetCode::IntegerPalindrome.new(1)
+        @negative = LeetCode::IntegerPalindrome.new(-1)
       end
 
       it 'should return true for single digit positive integers' do
@@ -17,10 +17,10 @@ RSpec.describe LeetCode::Palindrome do
 
     context 'odd number of multiple digits' do
       before(:each) do
-        @positive_true = LeetCode::Palindrome.new(53_435)
-        @negative_true = LeetCode::Palindrome.new(-53_435)
-        @positive_false = LeetCode::Palindrome.new(88_923)
-        @negative_false = LeetCode::Palindrome.new(-88_923)
+        @positive_true = LeetCode::IntegerPalindrome.new(53_435)
+        @negative_true = LeetCode::IntegerPalindrome.new(-53_435)
+        @positive_false = LeetCode::IntegerPalindrome.new(88_923)
+        @negative_false = LeetCode::IntegerPalindrome.new(-88_923)
       end
 
       it 'should return true for multi-digit palindromes' do
@@ -42,10 +42,10 @@ RSpec.describe LeetCode::Palindrome do
 
     context 'even number of multiple digits' do
       before(:each) do
-        @positive_true = LeetCode::Palindrome.new(5335)
-        @negative_true = LeetCode::Palindrome.new(-5335)
-        @positive_false = LeetCode::Palindrome.new(8823)
-        @negative_false = LeetCode::Palindrome.new(-8823)
+        @positive_true = LeetCode::IntegerPalindrome.new(5335)
+        @negative_true = LeetCode::IntegerPalindrome.new(-5335)
+        @positive_false = LeetCode::IntegerPalindrome.new(8823)
+        @negative_false = LeetCode::IntegerPalindrome.new(-8823)
       end
 
       it 'should return true for multi-digit palindromes' do
