@@ -1,4 +1,4 @@
-require 'spec_helper'
+require './spec/spec_helper'
 
 describe 'Tree' do
   describe 'Basics' do
