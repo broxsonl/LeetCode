@@ -1,8 +1,8 @@
 module LeetCode
   class PascalsTriangle
-    # def initialize(num)
-    #   @triangle = generate(num)
-    # end
+    def initialize
+      @triangle = []
+    end
 
     def generate(num)
       triangle = Array.new(num) { [] }
@@ -11,17 +11,17 @@ module LeetCode
 
     def calculate_level(level)
       return [1] if level == 1
+      cache = @triangle[level - 1]
+      return cache if cache
 
-      current_level = Array.new(level)
-      previous_level = calculate_level(level - 1)
-      current_level[0] = previous_level.first
-      current_level[level - 1] = previous_level.last
+      current = Array.new(level)
+      previous = calculate_level(level - 1)
+      current[0] = previous.first
+      current[level - 1] = previous.last
 
-      1.upto(level - 2) do |i|
-        current_level[i] = previous_level[i - 1] + previous_level[i]
-      end
+      1.upto(level - 2) { |i| current[i] = previous[i - 1] + previous[i] }
 
-      current_level
+      @triangle[level - 1] = current
     end
   end
 end
