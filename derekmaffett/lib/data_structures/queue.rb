@@ -1,5 +1,6 @@
 module LeetCode
-  # Basic queue. It is essentially a wrapper for a doubly-linked list.
+  # Basic queue. It has been altered to use a singly linked list instead of
+  # a doubly linked list, saving us from having to use excess pointers.
   class Queue
     def initialize(*args)
       @queue = LeetCode::SingleList.new
