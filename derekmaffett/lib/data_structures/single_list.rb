@@ -1,4 +1,5 @@
 module LeetCode
+  # Implementation of a singly linked list
   class SingleList
     def initialize(*args)
       @head = nil
@@ -41,13 +42,12 @@ module LeetCode
       if n == 1
         value = remove_head
       else
-        node = find_nth_node(n - 1)
-        value = remove_node_after(node)
-        @tail = node if n == size
+        value = remove_node_after(node = find_nth_node(n - 1))
+        @tail = node if n == @size
       end
 
       @size -= 1
-      @tail = @head = nil if size == 0
+      @tail = @head = nil if @size == 0
       value
     end
 
@@ -81,6 +81,7 @@ module LeetCode
       @size += 1
     end
 
+    # Node for singly linked list
     class Node
       def initialize(value, nexxt = nil)
         @value = value
@@ -88,7 +89,6 @@ module LeetCode
       end
 
       attr_accessor :value, :next
-
     end
   end
 end
