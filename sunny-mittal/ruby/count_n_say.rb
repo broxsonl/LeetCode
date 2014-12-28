@@ -1,19 +1,21 @@
-def count_n_say(n, digits = '1')
-  (n - 1).times do 
-    result, count, char = '', 0, nil
-    digits.each_char.with_index do |c, i|
-      char ||= c
-      if char == c
-        count += 1
-      else
-        result += count.to_s + char
-        char, count = c, 1
-      end
-      result += count.to_s + c if i == digits.size - 1
-    end
-    digits = result
+def count_n_say(n)
+  n -= 1
+  digits = nil
+  n.times do
+    digits = help! digits
   end
-  digits
+  digits.empty? ? '1' : digits
 end
 
-puts count_n_say(3)
+def help!(digits)
+  container = []
+  digits ||= '1'
+  digits.each_char do |c|
+    if container.empty? || container[-1][0] != c
+      container.push([c])
+    else
+      container[-1].push(c)
+    end
+  end
+  container.map { |l| [l.length.to_s, l.uniq] }.flatten.join
+end
