@@ -19,6 +19,6 @@ public class ValidParentheses {
                 if(seen.empty() || pairs.get(seen.pop()) != c)
                     return false;
         }
-        return seen.isEmpty() ? true : false;
+        return seen.isEmpty();
     }
 }
