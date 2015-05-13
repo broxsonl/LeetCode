@@ -4,8 +4,8 @@ public class BinaryTree {
 	public static void main(String[] args) {
 		BinaryTree bt = new BinaryTree();
 		int[] values = { 10, 5, 1, 8, 11, 12, 14 };
-		for (int i = 0; i < values.length; i ++) {
-			root = bt.insert(values[i], root);
+		for (int value : values) {
+			root = bt.insert(value, root);
 		}
 		System.out.println(root.left.right.val);
 	}
@@ -15,8 +15,7 @@ public class BinaryTree {
 		int left = maxDepth(root.left);
 		int right = maxDepth(root.right);
 		
-		int depth = left > right ? left + 1 : right + 1;
-		return depth;
+		return left > right ? left + 1 : right + 1;
 	}
 	
 	public TreeNode insert(int x, TreeNode node) {
